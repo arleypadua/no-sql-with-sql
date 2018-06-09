@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Orders.Domain.SeedWork;
 using System.Threading.Tasks;
-using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Model
 {
@@ -8,6 +7,6 @@ namespace Orders.Domain.Model
     {
         Task Add(Order order);
         Task Update(Order order);
-        Task<Order> GetById(Guid id);
+        Task<Order> GetById(string id);
     }
 }

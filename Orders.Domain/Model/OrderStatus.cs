@@ -1,5 +1,4 @@
-﻿using System;
-using Orders.Domain.SeedWork;
+﻿using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Model
 {

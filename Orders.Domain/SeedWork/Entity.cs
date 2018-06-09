@@ -5,11 +5,11 @@ namespace Orders.Domain.SeedWork
     public abstract class Entity
     {
         int? _requestedHashCode;
-        public virtual Guid Id { get; protected set; }
+        public string Id { get; protected set; }
 
         public bool IsTransient()
         {
-            return this.Id == default(Guid);
+            return this.Id == default(string);
         }
 
         public override bool Equals(object obj)

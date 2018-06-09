@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Application", "Orders.Application\Orders.Application.csproj", "{D5E36199-78A3-4F98-B3CC-306D11DBBC89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Application", "Orders.Application\Orders.Application.csproj", "{D5E36199-78A3-4F98-B3CC-306D11DBBC89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Domain", "Orders.Domain\Orders.Domain.csproj", "{1145CD09-D939-478B-86EE-F033014FC4AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Domain", "Orders.Domain\Orders.Domain.csproj", "{1145CD09-D939-478B-86EE-F033014FC4AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Infrastructure", "Orders.Infrastructure\Orders.Infrastructure.csproj", "{D2912B67-DB4F-47CE-95E1-B8AF5F8B6565}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1145CD09-D939-478B-86EE-F033014FC4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1145CD09-D939-478B-86EE-F033014FC4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1145CD09-D939-478B-86EE-F033014FC4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2912B67-DB4F-47CE-95E1-B8AF5F8B6565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2912B67-DB4F-47CE-95E1-B8AF5F8B6565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2912B67-DB4F-47CE-95E1-B8AF5F8B6565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2912B67-DB4F-47CE-95E1-B8AF5F8B6565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Nevermore.Contracts;
+using Orders.Domain.SeedWork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Model
 {
-    public class Order : Entity, IAggregateRoot
+    public class Order : Entity, IAggregateRoot, IId
     {
         private Order()
         {
@@ -23,7 +24,6 @@ namespace Orders.Domain.Model
 
             return new Order
             {
-                Id = Guid.NewGuid(),
                 Customer = customer,
                 OrderDate = orderDate ?? DateTime.UtcNow,
                 Products = products,
@@ -49,8 +49,21 @@ namespace Orders.Domain.Model
             private set => _events = value.ToList();
         }
 
-        public decimal OrderTotal => Products.Sum(p => p.Total);
-        public bool Canceled => _events.Any(e => e.OrderStatus.Name == OrderStatus.Canceled.Name);
+        public decimal OrderTotal
+        {
+            get { return Products.Sum(p => p.Total); }
+            
+            // TODO see https://github.com/OctopusDeploy/Nevermore/issues/51
+            private set { } 
+        }
+
+        public bool Canceled
+        {
+            get { return _events.Any(e => e.OrderStatus.Name == OrderStatus.Canceled.Name); }
+
+            // TODO see https://github.com/OctopusDeploy/Nevermore/issues/51
+            private set { }
+        }
 
         public void SetPayed()
         {

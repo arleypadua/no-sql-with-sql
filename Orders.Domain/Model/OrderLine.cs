@@ -1,9 +1,8 @@
 ﻿using System;
-using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Model
 {
-    public class OrderLine : Entity
+    public class OrderLine
     {
         public OrderLine(string description, decimal unitPrice, decimal amount)
         {

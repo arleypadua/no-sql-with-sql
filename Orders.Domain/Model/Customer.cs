@@ -1,13 +1,11 @@
 ﻿using System;
-using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Model
 {
-    public sealed class Customer : Entity
+    public sealed class Customer
     {
         public Customer(string name)
         {
-            Id = Guid.NewGuid();
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
 

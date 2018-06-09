@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Orders.Domain.Model;
+using Orders.Infrastructure.Storage;
 
 namespace Orders.Application
 {
     public class Application
     {
-        // This can be easily refactored in order to get the instance from an IoC container
-        // For the matter of this learning, lets keep it simple.
-        // TODO: put the implementation when it is available.
         private readonly IOrderRepository _repository;
 
         public Application(IOrderRepository repository)
@@ -26,7 +24,7 @@ namespace Orders.Application
             await SetOrderCanceled(id);
         }
 
-        private async Task<Guid> CreateOrder()
+        private async Task<string> CreateOrder()
         {
             var newOrder = Order.New(new Customer("John"), new List<OrderLine>
             {
@@ -40,7 +38,7 @@ namespace Orders.Application
             return newOrder.Id;
         }
 
-        private async Task SetOrderApproved(Guid id)
+        private async Task SetOrderApproved(string id)
         {
             var order = await _repository.GetById(id);
             order.SetApproved("approved, pay attention at the second product.");
@@ -48,7 +46,7 @@ namespace Orders.Application
             await _repository.Update(order);
         }
 
-        private async Task SetOrderPayed(Guid id)
+        private async Task SetOrderPayed(string id)
         {
             var order = await _repository.GetById(id);
             order.SetPayed();
@@ -56,7 +54,7 @@ namespace Orders.Application
             await _repository.Update(order);
         }
 
-        private async Task SetOrderCanceled(Guid id)
+        private async Task SetOrderCanceled(string id)
         {
             var order = await _repository.GetById(id);
             order.SetCanceled("The payment was declined by the provider");

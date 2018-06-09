@@ -1,9 +1,8 @@
 ﻿using System;
-using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Model
 {
-    public class OrderEvent : Entity
+    public class OrderEvent
     {
         private OrderEvent()
         {
