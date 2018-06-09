@@ -8,6 +8,6 @@ namespace Orders.Domain.Model
     {
         Task Add(Order order);
         Task Update(Order order);
-        Task GetById(Guid id);
+        Task<Order> GetById(Guid id);
     }
 }

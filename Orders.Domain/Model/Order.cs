@@ -12,7 +12,7 @@ namespace Orders.Domain.Model
 
         }
 
-        public static Order NewOrder(Customer customer, List<OrderLine> products, DateTime? orderDate = null)
+        public static Order New(Customer customer, List<OrderLine> products, DateTime? orderDate = null)
         {
             if (customer == null) throw new ArgumentNullException(nameof(customer));
             if (products == null) throw new ArgumentNullException(nameof(products));
