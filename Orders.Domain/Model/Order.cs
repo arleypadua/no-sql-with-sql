@@ -49,21 +49,9 @@ namespace Orders.Domain.Model
             private set => _events = value.ToList();
         }
 
-        public decimal OrderTotal
-        {
-            get { return Products.Sum(p => p.Total); }
-            
-            // TODO see https://github.com/OctopusDeploy/Nevermore/issues/51
-            private set { } 
-        }
+        public decimal OrderTotal => Products.Sum(p => p.Total);
 
-        public bool Canceled
-        {
-            get { return _events.Any(e => e.OrderStatus.Name == OrderStatus.Canceled.Name); }
-
-            // TODO see https://github.com/OctopusDeploy/Nevermore/issues/51
-            private set { }
-        }
+        public bool Canceled => _events.Any(e => e.OrderStatus.Name == OrderStatus.Canceled.Name);
 
         public void SetPayed()
         {

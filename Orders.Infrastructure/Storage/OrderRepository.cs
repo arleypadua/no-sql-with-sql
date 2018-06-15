@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Orders.Domain.Model;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Orders.Infrastructure.Storage
@@ -66,6 +67,20 @@ namespace Orders.Infrastructure.Storage
                 }
 
                 return order;
+            });
+        }
+
+        public Task<List<Order>> GetByCustomerName(string name)
+        {
+            return RunAndReturnAsync(() =>
+            {
+                using (var transaction = Store.BeginTransaction())
+                {
+                    return transaction
+                        .Query<Order>()
+                        .Where("CustomerName", UnarySqlOperand.Equal, name)
+                        .ToList();
+                }
             });
         }
 
